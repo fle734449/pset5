@@ -59,7 +59,7 @@ public class GraphTester {
 	
 	@Test public void tae5() {
 		Graph g = new Graph(3);
-		g.addEdge(0, 5);
+		g.addEdge(0, 3);
 		g.addEdge(1, 1);
 		System.out.println(g);
 		assertEquals(g.toString(), "numNodes: 3\nedges: [[false, false, false], [false, true, false], [false, false, false]]");
@@ -83,6 +83,149 @@ public class GraphTester {
 	// no test method directly invokes any method that is not
 	// declared in the Graph class as given in this homework
 	// ...
+	
+	@Test public void tr1() {
+		Graph g = new Graph(3);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(0);
+		source.add(1);
+		source.add(2);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		targets.add(2);
+		assertTrue(g.reachable(source, targets));
+	}
+	
+	@Test public void tr2() {
+		Graph g = new Graph(2);
+		g.addEdge(1, 0);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(1);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		assertTrue(g.reachable(source, targets));
+	}
+	
+	@Test public void tr3() {
+		Graph g = new Graph(4);
+		g.addEdge(0, 1);
+		g.addEdge(1, 3);
+		g.addEdge(3, 2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(2);
+		assertTrue(g.reachable(source, targets));
+	}
+	
+	@Test public void tr4() {
+		Graph g = new Graph(4);
+		g.addEdge(3, 0);
+		g.addEdge(3, 1);
+		g.addEdge(3, 2);
+		g.addEdge(3, 3);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(3);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		targets.add(2);
+		targets.add(3);
+		assertTrue(g.reachable(source, targets));
+	}
+	
+	@Test public void tr5() {
+		Graph g = new Graph(3);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(1);
+		source.add(2);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		targets.add(2);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr6() {
+		Graph g = new Graph(4);
+		g.addEdge(0, 2);
+		g.addEdge(2, 1);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(0);
+		source.add(1);
+		source.add(2);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(3);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr7() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(5);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr8() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(-2);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr9() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(2);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(0);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr10() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(1);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(2);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr11() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(1);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(5);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
+	@Test public void tr12() {
+		Graph g = new Graph(2);
+		Set<Integer> source = new TreeSet<Integer>();
+		source.add(1);
+		source.add(0);
+		Set<Integer> targets = new TreeSet<Integer>();
+		targets.add(-1);
+		targets.add(1);
+		assertFalse(g.reachable(source, targets));
+	}
+	
 	
 	
 }
