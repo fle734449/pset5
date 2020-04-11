@@ -33,7 +33,9 @@ public class Graph {
 		// postcondition: adds a directed edge "from" -> "to" to this graph
 		// your code goes here
 		//...
-		edges[from][to] = true;
+		if(from < numNodes && from >= 0 && to < numNodes && to >= 0) {
+			edges[from][to] = true;
+		}
 		
 	}
 	
@@ -48,13 +50,13 @@ public class Graph {
 		// your code goes here
 		//...
 		for(Integer i : sources) {
-			if(i >= numNodes) {
+			if(i >= numNodes || i < 0) {
 				return false;
 			}
 		}
 		
 		for(Integer i : targets) {
-			if(i >= numNodes) {
+			if(i >= numNodes || i < 0) {
 				return false;
 			}
 		}
@@ -65,15 +67,11 @@ public class Graph {
 		while(!startNodes.isEmpty()) {
 			Integer current = startNodes.poll();
 			reachable.add(current);
-			if(current < numNodes) {
-				for(int i = 0; i < edges[current].length; i++) {
-					if(edges[current][i] == true) {
-						reachable.add(i);
-						startNodes.add(i);
-					}
+			for(int i = 0; i < edges[current].length; i++) {
+				if(edges[current][i] == true) {
+					reachable.add(i);
+					startNodes.add(i);
 				}
-			} else {
-				return false;
 			}
 		}
 		if(reachable.containsAll(targets)) {

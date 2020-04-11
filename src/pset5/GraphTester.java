@@ -26,7 +26,44 @@ public class GraphTester {
 	// no test method directly invokes any method that is not
 	// declared in the Graph class as given in this homework
 	// ...
+	@Test public void tae1() {
+		Graph g = new Graph(3);
+		g.addEdge(0, 1);
+		g.addEdge(1, 2);
+		System.out.println(g);
+		assertEquals(g.toString(), "numNodes: 3\nedges: [[false, true, false], [false, false, true], [false, false, false]]");
+	}
 	
+	@Test public void tae2() {
+		Graph g = new Graph(3);
+		g.addEdge(-1, 1);
+		System.out.println(g);
+		assertEquals(g.toString(), "numNodes: 3\nedges: [[false, false, false], [false, false, false], [false, false, false]]");
+	}
+	
+	@Test public void tae3() {
+		Graph g = new Graph(3);
+		g.addEdge(3, 1);
+		g.addEdge(0, 0);
+		System.out.println(g);
+		assertEquals(g.toString(), "numNodes: 3\nedges: [[true, false, false], [false, false, false], [false, false, false]]");
+	}
+	
+	@Test public void tae4() {
+		Graph g = new Graph(3);
+		g.addEdge(0, -1);
+		g.addEdge(2, 2);
+		System.out.println(g);
+		assertEquals(g.toString(), "numNodes: 3\nedges: [[false, false, false], [false, false, false], [false, false, true]]");
+	}
+	
+	@Test public void tae5() {
+		Graph g = new Graph(3);
+		g.addEdge(0, 5);
+		g.addEdge(1, 1);
+		System.out.println(g);
+		assertEquals(g.toString(), "numNodes: 3\nedges: [[false, false, false], [false, true, false], [false, false, false]]");
+	}
 	
 	// tests for method "reachable" in class "Graph"
 	@Test public void tr0() {
