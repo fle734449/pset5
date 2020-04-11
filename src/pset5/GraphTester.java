@@ -1,9 +1,12 @@
 package pset5;
+
 import static org.junit.Assert.*;
 import java.util.TreeSet;
 import java.util.Set;
 import org.junit.Test;
+
 public class GraphTester {
+	
 	// tests for method "addEdge" in class "Graph"
 	@Test public void tae0() {
 		Graph g = new Graph(2);
@@ -11,6 +14,7 @@ public class GraphTester {
 		System.out.println(g);
 		assertEquals(g.toString(), "numNodes: 2\nedges: [[false, true], [false, false]]");
 	}
+	
 	// your tests for method "addEdge" in class "Graph" go here
 	// you must provide at least 4 test methods;
 	// each test method has at least 1 invocation of addEdge;
@@ -31,6 +35,7 @@ public class GraphTester {
 		nodes.add(0);
 		assertTrue(g.reachable(nodes, nodes));
 	}
+	
 	// your tests for method "reachable" in class "Graph" go here
 	// you must provide at least 6 test methods;
 	// each test method must have at least 1 invocation of reachable;
