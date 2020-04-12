@@ -62,27 +62,23 @@ public class Graph {
 		}
 		
 		Set<Integer> visited = new HashSet<Integer>();
-		Set<Integer> reachable = new HashSet<Integer>();
 		Queue<Integer> startNodes = new LinkedList<Integer>();
 		startNodes.addAll(sources);
-		Integer start = startNodes.peek();
-		visited.add(start);
 		
 		while(!startNodes.isEmpty()) {
 			Integer current = startNodes.poll();
-			reachable.add(current);
+			visited.add(current);
 			
 			for(int i = 0; i < edges[current].length; i++) {
 				if(edges[current][i] == true) {
 					if(!visited.contains(i)) {
 						visited.add(i);
-						reachable.add(i);
 						startNodes.add(i);
 					}
 				}
 			}
 		}
-		if(reachable.containsAll(targets)) {
+		if(visited.containsAll(targets)) {
 			return true;
 		} else {
 			return false;
